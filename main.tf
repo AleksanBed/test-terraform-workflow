@@ -1,5 +1,10 @@
-resource "null_resource" "default" {
-	provisioner "local-exec" {
-		command = "echo 'siemano swiatku'"
+resource "local_file" "foo" {
+	content = var.content
+	filename = var.filename
+}
+
+terraform {
+	backend "local" {
+		path = "/.terraform.tfstate"
 	}
 }
